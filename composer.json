@@ -1,7 +1,5 @@
 {
     "name": "emersonsm/php7-duckduckgo",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "type": "library",
     "description": "Unofficial library using the DuckDuckGo API with php 7",
     "keywords": ["duckduckgo","api","search"],
@@ -14,4 +12,5 @@
             "DuckDuckGo\\": "src/DuckDuckGo/"
         }
     }
+    "minimum-stability": "dev"
 }
