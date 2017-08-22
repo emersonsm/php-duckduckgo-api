@@ -11,6 +11,6 @@
         "psr-4": { 
             "DuckDuckGo\\": "src/DuckDuckGo/"
         }
-    }
-    "minimum-stability": "dev",
+    },
+    "minimum-stability": "dev"
 }
