@@ -3,6 +3,7 @@
     "type": "library",
     "description": "Unofficial library using the DuckDuckGo API with php 7",
     "keywords": ["duckduckgo","api","search"],
+    "minimum-stability": "stable",
     "require": {
         "php": "^7.0",
         "guzzlehttp/guzzle": "^6.3"
