@@ -1,4 +1,8 @@
 {
+    "name": "emersonsm/php7-duckduckgo",
+    "type": "library",
+    "description": "Unofficial library using the DuckDuckGo API with php 7",
+    "keywords": ["duckduckgo","api","search"],
     "require": {
         "php": "^7.0",
         "guzzlehttp/guzzle": "^6.3"
