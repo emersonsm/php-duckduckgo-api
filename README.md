@@ -1,11 +1,11 @@
 # php7-duckduckgo
-An unofficial library using the DuckDuckGo API
+An unofficial library using the DuckDuckGo API.
 
 ## Notes
 
 This API requires PHP v7.0 or higher.
 
-To use the DuckDuckGo API in your application, just use a namespace, instance a class and receive an object response.
+To use the DuckDuckGo API in your application, just use a namespace, instance a class and receive an object response, as displayed in the example.
 
 ## Example
 
