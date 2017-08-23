@@ -12,5 +12,5 @@
             "DuckDuckGo\\": "src/DuckDuckGo/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
