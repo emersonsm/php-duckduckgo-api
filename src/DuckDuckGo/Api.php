@@ -37,9 +37,9 @@ Class Api
         $http = new Http();
         try {
             $response = $http->request("GET", $url);
-            return $response->getBody();
+            return $response->getBody()->getContents();
         } catch (ClientException $e) {
-            throw new Exception($e->getResponse()->getBody(), $e->getResponse()->getStatusCode());
+            throw new Exception($e->getResponse()->getBody()->getContents(), $e->getResponse()->getStatusCode());
         } catch (ServerException $e) {
             throw new Exception("Could not retrieve API result.", 503);
         }
