@@ -37,9 +37,9 @@ Class Api
         $http = new Http();
         try {
             $response = $http->request("GET", $url);
-            return $response->getBody()->getContents();
+            return json_decode($response->getBody()->getContents());
         } catch (ClientException $e) {
-            throw new Exception($e->getResponse()->getBody()->getContents(), $e->getResponse()->getStatusCode());
+            throw new Exception($e->getResponse()->getBody(), $e->getResponse()->getStatusCode());
         } catch (ServerException $e) {
             throw new Exception("Could not retrieve API result.", 503);
         }
@@ -56,7 +56,7 @@ Class Api
         $misc = new Misc();
 
         $parameters = [
-            "q" => urlencode($query),
+            "q" => $query,
             "format" => $misc->getConfig("format"),
             "no_html" => $misc->getConfig("html"),
             "no_redirect" => 1,
