@@ -1,16 +1,22 @@
 {
-    "name": "emersonsm/php7-duckduckgo",
+    "name": "emersonsm/php-duckduckgo-api",
     "type": "library",
-    "description": "Unofficial library using the DuckDuckGo API with php 7",
+    "description": "Open-source library for integrating DuckDuckGo's Zero-click Info API with PHP",
     "keywords": ["duckduckgo","api","search"],
+    "scripts": {
+        "test": "phpunit"
+    },
     "require": {
-        "php": "^7.0",
-        "guzzlehttp/guzzle": "^6.3"
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.0"
     },
     "autoload": {
         "psr-4": { 
             "DuckDuckGo\\": "src/DuckDuckGo/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    }
 }
