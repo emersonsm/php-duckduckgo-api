@@ -9,14 +9,14 @@ class Misc
      * 
      * @var string
      */
-    private $configPath;
+    private string $configPath;
 
     /**
      * DuckDuckGo Misc constructor.
      */
     public function __construct()
     {
-        $this->configPath = realpath(__DIR__ . '/../../config.php');
+        $this->configPath = realpath(__DIR__ . "/../../config/Config.php") ?: "";
     }
 
     /**
@@ -25,9 +25,14 @@ class Misc
      * @param string $key
      * @return string|bool
      */
-    public function getConfig($key)
+    public function getConfig($key): string|bool
     {
+        if (!file_exists($this->configPath)) {
+            return false;
+        }
+
         $config = require($this->configPath);
-        return (isset($config[$key])) ? $config[$key] : false;
+
+        return $config[$key] ?? false;
     }
 }

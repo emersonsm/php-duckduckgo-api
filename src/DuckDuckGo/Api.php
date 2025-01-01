@@ -14,30 +14,31 @@ Class Api
      * 
      * @var string
      */
-    protected $endpoint;
+    protected string $endpoint;
 
     /**
      * DuckDuckGo Api constructor.
      */
-    public function __construct()
+    public function __construct(string $endpoint = "api.duckduckgo.com/")
     {
-        $this->endpoint = "api.duckduckgo.com/";
+        $this->endpoint = $endpoint;
     }
 
     /**
      * Perform a query against the DuckDuckGo API.
      * 
      * @param  string $query
-     * @throws Exception
-     * @return Json
+     * @throws \Exception
+     * @return array
      */
-    public function zeroClickQuery(string $query)
+    public function zeroClickQuery(string $query): array
     {
         $url = $this->buildUrl($query);
         $http = new Http();
+
         try {
             $response = $http->request("GET", $url);
-            return json_decode($response->getBody()->getContents());
+            return json_decode($response->getBody()->getContents(), true);
         } catch (ClientException $e) {
             throw new Exception($e->getResponse()->getBody(), $e->getResponse()->getStatusCode());
         } catch (ServerException $e) {
@@ -49,9 +50,9 @@ Class Api
      * Build a url with config parameters and query.
      * 
      * @param string $query
-     * @return string $url
+     * @return string
      */
-    public function BuildUrl(string $query)
+    public function BuildUrl(string $query): string
     {
         $misc = new Misc();
 
@@ -65,9 +66,10 @@ Class Api
 
         $url = ($misc->getConfig("https")) 
             ? "https://".$this->endpoint."?"
-            : "https://".$this->endpoint."?";
+            : "http://".$this->endpoint."?";
 
         $url .= http_build_query($parameters);
+
         return $url;
     }
 }
