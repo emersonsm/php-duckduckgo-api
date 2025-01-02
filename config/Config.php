@@ -6,7 +6,7 @@ return [
     | Default: true.
     | Options: true, false.
     */
-    "https" => false,
+    "https" => true,
 
     /*
     | Use JSON or XML format
